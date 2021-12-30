@@ -11,6 +11,7 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "List"
         // Do any additional setup after loading the view.
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
     }
@@ -31,6 +32,13 @@ class ViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "title\(section)"
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .blue
+        vc.title = "Detail"
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
